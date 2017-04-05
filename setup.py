@@ -12,7 +12,7 @@ def pkg_config_libs(pkgs):
     return map(lambda path: path[2::], commands.getoutput('pkg-config --libs-only-l %s' % (' '.join(pkgs))).split())
 
 cairo_mod = Extension('dtk_cairo_blur',
-                include_dirs = pkg_config_cflags(['cairo', 'pygobject-2.0', '-I/usr/include/glib-2.0/glib.h']),
+                include_dirs = pkg_config_cflags(['cairo', 'pygobject-2.0', '-I/usr/include/glib-2.0']),
                 libraries = ['cairo', 'pthread', 'glib-2.0'],
                 sources = ['./deepin_utils/cairo_blur.c'])
 webkit_mod = Extension('dtk_webkit_cookie',
